@@ -1,0 +1,140 @@
+<section id='content' ng-controller="paymentController">
+    <div class='container-fluid'>
+        <div class='row-fluid' style ="margin-top: 50px;height: 250px;">
+            <div class='span12 box'>
+                <div class='row'>
+                    <div class='col-sm-12'>
+                        <div class='box bordered-box red-border'>
+                            <div class='box-header red-background'>
+                                <div class='span6 title'>Welcome</div>
+                            </div>
+                            <div class='box-content box-double-padding'>
+
+                                <div ng-if="displayMessage" class='alert alert-info'>
+                                    {{displayMessage}}
+                                </div>
+
+                                <form class='form' id="userForm" name="userForm" style='margin-bottom: 0;'>
+                                    <fieldset>
+                                        <div class='col-sm-4'>
+<div class='form-group'>
+                                                <label>Payment Type</label>
+                                                <select ng-model="user.role" class='form-control' id='inputSelect' ng-options="option.type as option.name for option in types">
+
+                                                </select>
+                                            </div>
+                                       
+                                        </div>
+                                        <div class='col-sm-7 col-sm-offset-1'>
+
+                                            <div class='form-group'>
+                                                <label>Name</label>
+                                                <div class='row'>
+                                                    <div class='col-sm-6 col-md-6 col-lg-4'>
+                                                        <div class='input-group'>
+                                                            <input ng-model="user.first_name" class='form-control' id='first_name' placeholder='First Name' type='text' required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class='col-sm-6 col-md-6 col-lg-4'>
+                                                        <div class='input-group'>
+                                                            <input ng-model="user.last_name" class='form-control' id='last_name' placeholder='Last Name' type='text' required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class='form-group'>
+                                                <label>E-mail</label>
+                                                <input ng-model="user.username" class='form-control' id='username' placeholder='E-mail' type='text'>
+                                            </div>
+
+
+<div class='form-group'>
+                                                <label></label>
+                                                <div class='row'>
+                                                    <div class='col-sm-6 col-md-6 col-lg-4'>
+                                                        <div class='input-group'>
+                                                            <input ng-model="cardnumber" class='form-control' id='first_name' placeholder='Cardnumber' type='text' required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class='col-sm-6 col-md-6 col-lg-4'>
+                                                        <div class='input-group'>
+                                                            <input ng-model="ccv" class='form-control' id='last_name' placeholder='CCV' type='text' required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+
+                                        </div>
+                                    </fieldset>
+                                    <hr class='hr-normal'>
+
+                                    <fieldset>
+                                        <div class='col-sm-4'>
+
+                                            <div class='box'>
+                                                <div class='lead'>
+                                                    <i class='icon-user contrast'></i>
+                                                   
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class='col-sm-7 col-sm-offset-1'>
+
+                                            <div class='form-group'>
+                                                <label>Card Type</label>
+                                                <select ng-model="user.role" class='form-control' id='inputSelect' ng-options="option.type as option.name for option in cardTypes">
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+ <div class='col-sm-5 col-sm-offset-1'>
+
+                                            <div class='form-group'>
+                                                <label>Expire Year</label>
+                                                <select ng-model="user.role" class='form-control' id='inputSelect' ng-options="option.type as option.name for option in cardTypes">
+
+                                                </select>
+
+
+ <label>Expire Month</label>
+                                                <select ng-model="user.role" class='form-control' id='inputSelect' ng-options="option.type as option.name for option in month">
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+                                    </fieldset>
+                                    <hr class='hr-normal'>
+
+                                    <div class='form-actions'>
+                                        <div class='row'>
+                                            <div class='col-sm-7 col-sm-offset-5'>
+
+                                                <button class='btn btn-success' ng-click="add()">
+                                                    Confirm
+                                                </button>
+
+                                                <button class='btn' ng-click="back()">
+                                                    BACK
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

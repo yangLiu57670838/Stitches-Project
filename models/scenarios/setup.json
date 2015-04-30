@@ -1,0 +1,53 @@
+{
+	"users": [
+		{
+			"_ref": "users.cw",
+			"username": "charles@mfdc.biz",
+			"password": "qwaszx",
+			"first_name": "Charles",
+			"last_name" : "Wang",
+			"role": "root",
+			"phone": "0451551447",
+			"company": "MFDC"
+		},
+		{
+			"_ref": "users.root",
+			"username": "root@stem.com",
+			"password": "qwaszx",
+			"first_name": "Enoch",
+			"last_name" : "Root",
+			"role": "root"
+		},
+		{
+			"_ref": "users.admin",
+			"username": "admin@stem.com",
+			"password": "qwaszx",
+			"first_name": "Joe",
+			"last_name" : "Admin",
+			"role": "admin"
+		},
+		{
+			"_ref": "users.user",
+			"username": "user@stem.com",
+			"password": "qwaszx",
+			"first_name": "Joe",
+			"last_name" : "User",
+			"role": "user"
+		}
+	],
+
+
+	"orders": [
+		{
+			"additional_details": "hello",
+			"payment_status": "Paid",
+			"status": "Accepted",
+			"filename": "abc.jpg"
+		},																																					
+		{
+			"additional_details": "world",
+			"payment_status": "Not Paid",
+			"status": "Processing"
+		}
+	]
+}
