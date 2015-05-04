@@ -11,7 +11,7 @@ app.config(function($routeProvider, $locationProvider) {
 		.when('/users/orderDetails/:id', {templateUrl: "/partials/users/orderDetails.html"})
 	        .when('/users/downloads', {templateUrl: "../uploads/turkish_van_cat1-663x7281428899630874.jpg"})
 		.when('/:id', {templateUrl: "/partials/frontpage.html"})
-		.when('/users/confirm/:filename', {templateUrl: "/partials/users/orderConfirm.html"})
+		.when('/users/confirm/:filename/:id', {templateUrl: "/partials/users/orderConfirm.html"})
 		.when('/users/payment', {templateUrl: "/partials/users/payment.html"})
 
 		

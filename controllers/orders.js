@@ -9,7 +9,7 @@ var mongoose = require('mongoose');//
 
 
 // FIXME: Security needed here to ensure only admins can get CRUD access
-restify.serve(app, orders);
+restify.serve(app, orders);//go to database throught restify
 
 app.get('/api/orders/status/:status', function(req, res) {
 	var id = req.params.id;
@@ -21,7 +21,7 @@ app.get('/api/orders/status/:status', function(req, res) {
 
 app.get('/api/orders/:id', function(req, res) {
 	var id = req.params.id;
-	orders.findOne({'_id': req.params.id }, function(err, item) {
+	orders.findOne({'_id': req.params.id }, function(err, item) {//findOne is the method of mongoosejs, which is a monodb object for nodejs only!!! 
 		res.send(item).end();
 	});
 });
@@ -89,8 +89,8 @@ app.post('/api/photo',function(req,res){//orderid is the way to pass data from a
    // res.end("File uploaded.");
    //res.redirect("back");
     var filename = req.files.userPhoto.name;
-	//var filename = order._id;
-   return res.redirect('http://localhost:4000/#/users/confirm/' + filename);
+	var id = "abc";
+   return res.redirect('http://localhost:4000/#/users/confirm/' + filename + '/' + id);
 
   }
 

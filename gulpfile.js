@@ -23,8 +23,8 @@ var paths = {
 		'app/**/*.js',
 	],
 	css: [
-//		'public/css/**/*.scss',
-//		'public/css/**/*.css',
+		//'public/css/**/*.scss',
+		//'public/css/**/*.css',
 	],
 	data: [
 		'models/data/**/*.js'

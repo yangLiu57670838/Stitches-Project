@@ -17,6 +17,7 @@ app.controller('orderController', function($scope, $routeParams, $location, Orde
 		$scope.order.additional_details = $scope.notes;
 		$scope.order.email = $scope.email;
 		$scope.order.status = "Pending";
+		$scope.order.payment_status = "Not Paid";
 		$scope.order.filename = "newfile";
 		var query = {};
 
@@ -139,14 +140,17 @@ app.controller('orderDetailsController', function($scope, $routeParams, $locatio
 
 app.controller('orderConfirmController', function($scope, $routeParams, $location, Order) {
 	console.log("paras:",$routeParams.filename);
-        $scope.displayMessage = $routeParams.filename + " has been uploaded.";
+        $scope.displayMessage = $routeParams.filename + " has been uploaded." + $routeParams.id;
 	
 	$scope.lists = Order.query({filename: "newfile"});
 	
-	
+	var order = new Order();
+	$scope.order = { //??
+		_id: '_new'
+	};
 
 	$scope.confirm = function() {
-		var a = $scope.lists[0].email;//????
+		/*var a = $scope.lists[0].email;//????
 		$scope.displayMessage = a;//????
 
 		$scope.lists[0].filename = $routeParams.filename;
@@ -155,10 +159,29 @@ app.controller('orderConfirmController', function($scope, $routeParams, $locatio
 
 		Order.save({filename: "newfile"}, {filename: $routeParams.filename});
 
-			$location.path("/users/orders/");
+			$location.path("/users/orders/");*/
 		//??????
+    
+		//$scope.displayMessage = "abccccc";
 
+         Order.query({filename: "newfile"}).$promise.then(function(data) {//get original, delete, then create new one, need to be fixed later
 		
+		$scope.order = data[0];
+		$scope.order.filename = $routeParams.filename;
+		Order.delete({_id: $scope.order._id});
+	
+			
+		$scope.displayMessage = $scope.order._id + $scope.order.status + $scope.order.filename;
+
+		Order.save($scope.order).$promise.then(function() {
+			$location.path("/users/orders"); 
+		});
+	
+		
+	});
+		
+
+
 
 };
     
