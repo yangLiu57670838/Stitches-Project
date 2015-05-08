@@ -1,5 +1,5 @@
 // App global controller (also $rootScope)
-app.controller('globalController', function($scope, $rootScope, $location, User) {
+app.controller('globalController', function($scope, $rootScope, $location, User) {//rootscope is used to go access rootscope variables, location is used to relocate different URLS.
 	// .user {{{
 	User.profile().$promise.then(function(data) {
 		$scope.setUser(data);

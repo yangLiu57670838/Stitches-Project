@@ -8,7 +8,7 @@ app.controller('globalController', function($scope, $rootScope, $location, User)
 		$rootScope.user = user;
 		console.log('path:',window.location.pathname);
 		console.log('$rootScope.user:',$rootScope.user);
-		if ((!user || !user.username) && window.location.pathname != '/login' && window.location.pathname != '/sign_up') {
+		if ((!user || !user.username) && window.location.pathname != '/login' && window.location.pathname != '/sign_up' && window.location.pathname != '/contact') {
 			window.location = '/login';
 			return;
 		}

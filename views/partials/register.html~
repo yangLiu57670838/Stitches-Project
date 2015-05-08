@@ -12,33 +12,19 @@
                     <i class="fa fa-bars icon-custom"></i>
                 </button>
 
-                <a class="navbar-brand" href="/" title="Boomerang | One template. Infinite solutions">
-                    <img src="images/MFDClogo.png" alt="" style="width:140px; height:150px; margin-top:-50px; position:relative; top:30px; left:-80px;">
+                <a class="navbar-brand" href="/" title="Stitches">
+                    <img src="images/MFDClogo.png" alt="" style="width:140px; height:150px; margin-top:-40px; position:relative; top:30px; left:-80px;">
                 </a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden-md hidden-lg">
-                        <div class="bg-light-gray">
-                            <form class="form-horizontal form-light p-15" role="form">
-                                <div class="input-group input-group-lg">
-                                    <input type="text" class="form-control" placeholder="I want to find ...">
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-white" type="button">
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </span>
-                                </div>
-                            </form>
-                        </div>
-                    </li>
-
+                    
 <li>
-<a href="/" class="hv" data-toggle="" style="font-size:30px; font-weight:bold; color:white; margin-top:30px; ">Home</a>
+<a href="/" class="hv" data-toggle="" style="font-size:40px; font-weight:bold; color:#1E90FF; margin-top:40px; ">Home</a>
 </li>
 
 <li>
-<a href="/contact" class="hv" data-toggle="" style="font-size:30px; font-weight:bold; color:white; margin-top:30px; ">Contact Us</a>
+<a href="/sign_up" class="hv" data-toggle="" style="font-size:40px; font-weight:bold; color:#1E90FF; margin-top:40px; ">Contact Us</a>
 </li>
                </ul>
                
@@ -61,8 +47,10 @@
                             <div class="row">
                             <div class="form-group col-lg-12">
                                 <label>Email Address</label>
-                                <input class="form-control" type="email" name="username" ng-model="username" required placeholder="Email"/>
-                            </div>
+
+
+                                <input class="form-control" type="email" name="username" ng-model="username" required placeholder="Email"/></div>
+                         
                             <div class="form-group col-lg-6">
                                 <label>Password</label>
                                 <input class="form-control" type="password" name="password" ng-model="password" required placeholder="Password"/>
@@ -90,12 +78,24 @@
                             </div>
 
                             </div>
+
+						<div class="col-md-8">
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" name="subscription" id="subscription" ng-model="show">
+                                                        <i></i> I accept the <a href="#">terms and conditions</a> of this website.
+                                                    </label>
+                                                </div>
+
                             <div class="text-center">
                                 <button type="submit" class="btn btn-success">Register</button>
                                 <a class="btn btn-default" href="/login">Cancel</a>
                             </div>
                         </form>
                 </div>
+
+<div class="panel-footer">
+                                <p>Already have an account? <a href="/login">Click here to sign in.</a></p>
+                            </div>
             </div>
         </div>
     </div>
@@ -109,3 +109,16 @@
 </div>
 
 </div>
+
+<footer class="footer" style="background-color: black;">
+<div class="container" style="text-align:center;text-bottom; color:white;">
+			<br><br>
+			Contact Us:
+
+			info@mfdc.io
+
+			<a style="color: #A52A2A;" href="tc.html" target="_blank">Terms &amp; Conditions</a>
+
+			Phone: + 61 7 5641 0288  
+	  </div>
+    </footer>

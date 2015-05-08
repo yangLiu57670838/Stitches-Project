@@ -16,11 +16,7 @@
 	<link rel="stylesheet" href="/bower_components/fontawesome/css/font-awesome.min.css">
 
         <!-- Favicon -->
-        <!--<link href="../logo.png" rel="icon" type="image/png">-->
-
-
-
-
+        <link href="/images/logo.png" rel="icon" type="image/png">
 
 	<!-- jQuery -->
 	<script src="/bower_components/jquery/dist/jquery.min.js"></script>
@@ -55,6 +51,9 @@
 	<!-- Site Core -->
 	<script src="/build/all.min.js"></script>
 	<link href="/build/all.min.css" rel="stylesheet" type="text/css"/>
+
+	<!-- addition -->
+	<link rel="stylesheet" href="assets/fancybox/jquery.fancybox.css?v=2.1.5" media="screen"> 
 </head>
 
 <body ng-app="app" ng-controller="globalController">
