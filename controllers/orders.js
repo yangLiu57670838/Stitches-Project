@@ -1,6 +1,7 @@
 var orders = require('../models/orders');
 var multer = require('multer');//
 var done = false;//
+
 var express = require('express');//
 var mongoose = require('mongoose');//
 //var _ = require('lodash');
@@ -97,5 +98,27 @@ app.post('/api/photo',function(req,res){//orderid is the way to pass data from a
 
 });//
 
+
+//
+app.get('./views/partials/users/orderDetails.html',function(req,res){//
+      res.sendfile("./views/partials/users/orderDetails.html");
+      
+});
+
+app.post('/api/adminUpload',function(req,res){//orderid is the way to pass data from angularjs controller to here
+  if(done==true){
+
+
+    //console.log(req.files);
+   // res.end("File uploaded.");
+   //res.redirect("back");
+    var filename = req.files.adminPhoto.name;
+	var id = "abc";
+   return res.redirect('http://localhost:4000/#/users/DTSconfirm/' + filename + '/' + id);
+
+  }
+
+
+});//
 
 

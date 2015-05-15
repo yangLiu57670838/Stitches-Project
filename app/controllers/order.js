@@ -110,7 +110,7 @@ app.controller('orderListController', function($scope, $routeParams, $location, 
 
  
         $scope.orderDetails = function (order) {
-        $location.path("/users/orderDetails/" + order.email);
+        $location.path("/users/orderDetails/" + order.email + '/' + order._id);
     };
 
 
@@ -121,20 +121,51 @@ $scope.displayMessage = "Orders";
 
 });
 
-app.controller('orderDetailsController', function($scope, $routeParams, $location, User) {
-	console.log("paras:",$routeParams.id);
+app.controller('orderDetailsController', function($scope, $routeParams, $location, $rootScope, User, Order) {
+	console.log("paras:",$routeParams.email);
+	console.log("paras2:",$routeParams.id);
+
+
+	$customer = $rootScope.user;
+	$scope.role = $customer.role;
+if ($customer.role == "user") {
+        $scope.usera = true;
+console.log("paras:",$scope.usera);
+
+}else {
+	$scope.usera = false;
+console.log("paras:",$scope.usera);
+}
+
+
+
 	$scope.user = {};
 
-	User.query({username: $routeParams.id}).$promise.then(function(data) {//before get element from database, should have promise.then
+	User.query({username: $routeParams.email}).$promise.then(function(data) {//after get element from database, should have promise.then
 		$scope.user = data[0];
 	});
 
        $scope.payment_status = "Unknown";//need to be fixed
-       $scope.status = "Pending";//need to be fixed
+       $scope.status = "Processing";//need to be fixed
+
+	
+
 
     $scope.back = function () {
       window.history.back();
     };
+
+
+   	Order.query({_id: $routeParams.id}).$promise.then(function(data) {
+		$scope.b = data[0];
+		$scope.orderid = $routeParams.id;
+		console.log("order:", $scope.b.order_date);
+		console.log("orderid:", $scope.orderid);
+	});
+	
+
+
+   
 
 });
 
@@ -187,4 +218,45 @@ app.controller('orderConfirmController', function($scope, $routeParams, $locatio
     
 
 });
+
+
+
+app.controller('DTSConfirmController', function($scope, $routeParams, $location, Order) {
+	console.log("paras:",$routeParams.filename);
+        $scope.displayMessage = $routeParams.filename + " has been uploaded." + $routeParams.id;
+	
+	$scope.lists = Order.query({filename: "newfile"});
+	
+	var order = new Order();
+	$scope.order = { //??
+		_id: '_new'
+	};
+
+	$scope.confirm = function() {
+		
+         Order.query({filename: "newfile"}).$promise.then(function(data) {//get original, delete, then create new one, need to be fixed later
+		
+		$scope.order = data[0];
+		$scope.order.filename = $routeParams.filename;
+		Order.delete({_id: $scope.order._id});
+	
+			
+		$scope.displayMessage = $scope.order._id + $scope.order.status + $scope.order.filename;
+
+		Order.save($scope.order).$promise.then(function() {
+			$location.path("/users/orders"); 
+		});
+	
+		
+	});
+		
+
+
+
+};
+    
+
+});
+
+
 

@@ -57,7 +57,7 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/api/profile', function(req, res) {
-	res.json(req.user ? req.user.data : null);
+	res.json(req.user ? req.user.data : null);//??
 });
 
 app.get('/api/users/:id', function(req, res) {

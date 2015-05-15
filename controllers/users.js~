@@ -26,7 +26,7 @@ app.get('/login', function(req, res) {
 app.get('/contact', function(req, res) {
 	console.log("req.user:",req.user);
 	if (req.user) // Already logged in
-		return res.redirect('partials/contact');
+		return res.redirect('/');
 
 	res.render('partials/contact', {
 		namespace: 'plain',
@@ -37,6 +37,7 @@ app.get('/contact', function(req, res) {
 app.get('/sign_up', function(req, res) {
 	if (req.user) // Already logged in
 		return res.redirect('/');
+
 
 	res.render('partials/register', {
 		namespace: 'plain',

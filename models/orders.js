@@ -13,7 +13,8 @@ var schema = new mongoose.Schema({
 	payment_status: {type: String, enum: ['Paid','Not Paid']},
 	status:{type: String, enum: ['Pending','Accepted','Processing','Completed']},
 	PaymentDetails: {type: String},
-	filename: {type: String}
+	filename: {type: String},
+	uploadedFilename: {type: String}
 });
 
 module.exports = mongoose.model(name, schema);

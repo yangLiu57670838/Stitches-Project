@@ -14,7 +14,7 @@
                                     {{displayMessage}}
                                 </div>
 
-                                <form class='form' id="uploadForm" name="orderForm" style='margin-bottom: 0;' enctype="multipart/form-data" action="/api/photo" method="post">
+                                <form class='form' id="uploadForm" name="orderForm" style='margin-bottom: 0;' enctype="multipart/form-data" action="/api/photo/" method="post">
                                     <fieldset>
                                         <div class='col-sm-4'>
 
@@ -38,7 +38,7 @@
 <div class='form-group'>
                                               
         <label>Select a File to Upload</label>
-        <input type="file" name="userPhoto" ng-model-instant id="fileToUpload" multiple onchange="" ng-model="file"/>
+        <input type="file" name="userPhoto" ng-model-instant id="fileToUpload" multiple onchange="" ng-model="file" ng-hide="user"/>
     </div>
 
 

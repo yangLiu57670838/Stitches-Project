@@ -5,16 +5,15 @@
                 <div class='row'>
                     <div class='col-sm-12'>
                         <div class='box bordered-box red-border'>
+
                             <div class='box-header red-background'>
                                 <div class='span6 title'>Order Details</div>
                             </div>
                             <div class='box-content box-double-padding'>
 
-                                <div class='alert alert-info'>
-                                    
-                                </div>
+                              
 
-                                <form class='form' id="userForm" name="userForm" style='margin-bottom: 0;'>
+                                <form class='form' id="userForm" name="userForm" style='margin-bottom: 0;' enctype="multipart/form-data" action="/api/adminUpload/" method="post">
                                     <fieldset>
                                         <div class='col-sm-4'>
 
@@ -57,21 +56,52 @@
                                             </div>
 
 
+
+
+
                                         </div>
                                     </fieldset>
-                                   
+
+ <fieldset>
+                                        <div class='col-sm-4'>
+
+                                            <div class='box'>
+                                                <div class='lead'>
+                                                    <i class='icon-user contrast'></i>
+                                                    Upload DTS files here
+                                                </div>
+                                            </div>
+
+                                        </div>
+<br><br><br>
+                                        <div class='col-sm-7 col-sm-offset-1'>
+
+      <div class='form-group' ng-hide="usera">
+                                              
+        <label>Select a File to Upload</label>
+        <input type="file" name="adminPhoto" ng-model-instant id="newfileToUpload" multiple onchange="" ng-model="newfile"/>
+    </div>
+
+                                        </div>
+                                    </fieldset>
+                                  
 
                                         <div class='row'>
                                             <div class='col-sm-7 col-sm-offset-5'>
 
-                                                    <button class='btn' ng-click="back()">
-                                                    BACK
+                                                  
+ 						<button class='btn btn-success' ng-click="upload()" ng-hide="usera">
+                                                    UPLOAD
                                                 </button>
 
                                             </div>
                                         </div>
                                     </div>
                                 </form>
+					      <br><br><br>  <button class='btn' ng-click="back()">
+                                                    Back To Order List
+                                                </button>
+                                              
                             </div>
                         </div>
                     </div>
