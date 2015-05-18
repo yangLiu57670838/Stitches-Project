@@ -91,7 +91,8 @@ app.post('/api/photo',function(req,res){//orderid is the way to pass data from a
    //res.redirect("back");
     var filename = req.files.userPhoto.name;
 	var id = "abc";
-   return res.redirect('http://localhost:4000/#/users/confirm/' + filename + '/' + id);
+  // return res.redirect('http://localhost:4000/#/users/confirm/' + filename + '/' + id);
+return res.redirect('http://128.199.233.242/#/users/confirm/' + filename + '/' + id);
 
   }
 
@@ -115,8 +116,12 @@ app.post('/api/adminUpload/',function(req,res){//orderid is the way to pass data
     var filename = req.files.adminPhoto.name;
 	//var id = "abc";
    //return res.redirect('http://localhost:4000/#/users/DTSconfirm/' + filename + '/' + id);
-	return res.redirect('http://localhost:4000/#/users/DTSconfirm/' + filename);
+ 
+	return res.redirect('http://128.199.233.242/#/users/DTSconfirm/' + filename);
+ 	//var root = location.protocol + '//' + location.host;
+	//return res.redirect(root + '/#/users/DTSconfirm/' + filename);
   }
+
 
 
 });//
