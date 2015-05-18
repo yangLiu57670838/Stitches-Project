@@ -27,7 +27,7 @@
                             <h1 class='pull-left'>
                                 <i class='icon-table'></i>
                                 <span>Users</span>
-				<span>{{displayMessage}}</span>
+				
                             </h1>
                         </div>
                     </div>

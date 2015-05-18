@@ -55,7 +55,6 @@
 			"email": "charles@mfdc.biz",
 			"payment_status": "Not Paid",
 			"status": "Processing",
-			"uploadedFilename": "Test",
 			"filename": "2122391431579960105.pdf"
 		},																																					
 		{
@@ -63,7 +62,6 @@
 			"email": "charles@mfdc.biz",
 			"payment_status": "Not Paid",
 			"status": "Processing",
-			"uploadedFilename": "Test",
 			"filename": "turkish_van_cat1-663x7281431582510216.jpg"
 		}
 	]

@@ -11,7 +11,7 @@
 			"company": "MFDC"
 		},
 		{
-			"_ref": "users.cw",
+			"_ref": "users.vm",
 			"username": "vandy@mfdc.biz",
 			"password": "abcd",
 			"first_name": "Vandy",

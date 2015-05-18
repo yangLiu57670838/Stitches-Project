@@ -126,12 +126,10 @@
 					<ul class="nav nav-second-level">
 					<li><a href="#/users/orders">Current Orders</a></li>
 					<li><a href="#/users/addOrder" ng-if="user">Add Order</a></li>
-					<li><a href="#/users/uploadOrder" ng-if="admin">Upload Order</a></li></ul>
+					
 
 			</li>
-			<li>
-					<a href="#/users/payment" ng-if="user"><span class="nav-label">Payment</span></a>
-			</li>
+
 
 
 			

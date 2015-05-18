@@ -1,6 +1,6 @@
 <section id='content' ng-controller="orderDetailsController">
     <div class='container-fluid'>
-        <div class='row-fluid' style ="margin-top: 50px;height: 250px;">
+        <div class='row-fluid' style ="margin-top: 50px;height:900px;">
             <div class='span12 box'>
                 <div class='row'>
                     <div class='col-sm-12'>
@@ -110,7 +110,7 @@
                                             <div class='box' ng-hide="usera">
                                                 <div class='lead'>
                                                     <i class='icon-user contrast'></i>
-                                                    Download DTS
+                                                    Download DTS File Here
                                                 </div>
                                             </div>
 
@@ -120,7 +120,7 @@
 
                                                         
  						<button class='btn btn-warning' ng-click="download()" ng-hide="usera">
-                                                    DOWNLOAD
+                                                    DOWNLOAD DTS
                                                 </button>
 
                                         </div>

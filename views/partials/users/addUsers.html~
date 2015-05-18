@@ -1,6 +1,6 @@
 <section id='content' ng-controller="userAddController">
     <div class='container-fluid'>
-        <div class='row-fluid' style ="margin-top: 50px;height: 250px;">
+        <div class='row-fluid' style ="margin-top: 50px;height: 700px;">
             <div class='span12 box'>
                 <div class='row'>
                     <div class='col-sm-12'>
@@ -101,7 +101,7 @@
                                         <div class='row'>
                                             <div class='col-sm-7 col-sm-offset-5'>
 
-                                                <button class='btn btn-success' ng-click="save()">
+                                                <button class='btn btn-success' ng-click="add()">
                                                     Add
                                                 </button>
 

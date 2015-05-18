@@ -161,26 +161,16 @@ console.log("paras:",$scope.usera);
 		$scope.orderid = $routeParams.id;
 		console.log("order:", $scope.b.additional_details);
 		console.log("orderid:", $scope.orderid);
-		console.log("orderuploadfile:", $scope.b.uploadedFilename);
+		//console.log("orderuploadfile:", $scope.b.uploadedFilename);
 
-    $scope.download = function () {
-      location.assign("uploads/" + $scope.b.uploadedFilename);
-
-    };
-
-
-	});
-	
-
-   $scope.upload = function() {//need to b fixed later
-		
 	var order = new Order();
 	$scope.order = { //??
 		_id: '_new'
-	};	
+	};
 
-
-         Order.query({_id: $routeParams.id}).$promise.then(function(data) {
+   $scope.upload = function() {//need to b fixed later
+		
+	  
 		$scope.order = data[0];
 
 		$scope.order.uploadedFilename = "uploading";
@@ -192,9 +182,21 @@ console.log("paras:",$scope.usera);
 		});
 	
 		
-	});
+	
 
 	};
+
+
+
+    $scope.download = function () {
+      location.assign("uploads/" + $scope.b.uploadedFilename);
+
+    };
+
+
+	});
+	
+
    
 
 });
