@@ -126,7 +126,7 @@
 					<ul class="nav nav-second-level">
 					<li><a href="#/users/orders">Current Orders</a></li>
 					<li><a href="#/users/addOrder" ng-if="user">Add Order</a></li>
-					<li><a href="" ng-if="admin">Upload Order</a></li></ul>
+					<li><a href="#/users/uploadOrder" ng-if="admin">Upload Order</a></li></ul>
 
 			</li>
 			<li>

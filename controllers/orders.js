@@ -105,7 +105,7 @@ app.get('./views/partials/users/orderDetails.html',function(req,res){//
       
 });
 
-app.post('/api/adminUpload',function(req,res){//orderid is the way to pass data from angularjs controller to here
+app.post('/api/adminUpload/',function(req,res){//orderid is the way to pass data from angularjs controller to here
   if(done==true){
 
 
@@ -113,9 +113,9 @@ app.post('/api/adminUpload',function(req,res){//orderid is the way to pass data 
    // res.end("File uploaded.");
    //res.redirect("back");
     var filename = req.files.adminPhoto.name;
-	var id = "abc";
-   return res.redirect('http://localhost:4000/#/users/DTSconfirm/' + filename + '/' + id);
-
+	//var id = "abc";
+   //return res.redirect('http://localhost:4000/#/users/DTSconfirm/' + filename + '/' + id);
+	return res.redirect('http://localhost:4000/#/users/DTSconfirm/' + filename);
   }
 
 

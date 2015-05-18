@@ -12,7 +12,7 @@ app.config(function($routeProvider, $locationProvider) {
 	 	.when('/users/uploadOrder', {templateUrl: "/partials/users/uploadOrder.html"})  
 		.when('/:id', {templateUrl: "/partials/frontpage.html"})
 		.when('/users/confirm/:filename/:id', {templateUrl: "/partials/users/orderConfirm.html"})
-		.when('/users/DTSconfirm/:filename/:id', {templateUrl: "/partials/users/DTSconfirm.html"})
+		.when('/users/DTSconfirm/:filename', {templateUrl: "/partials/users/DTSconfirm.html"})
 		.when('/users/payment', {templateUrl: "/partials/users/payment.html"})
 
 		

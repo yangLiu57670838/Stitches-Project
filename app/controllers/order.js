@@ -19,6 +19,7 @@ app.controller('orderController', function($scope, $routeParams, $location, Orde
 		$scope.order.status = "Pending";
 		$scope.order.payment_status = "Not Paid";
 		$scope.order.filename = "newfile";
+		//$scope.order.uploadedFilename = "EMPTY";
 		var query = {};
 
 		if ($scope.order._id != '_new') // Save over existing
@@ -26,7 +27,7 @@ app.controller('orderController', function($scope, $routeParams, $location, Orde
 		
 		
 		Order.save($scope.order).$promise.then(function() {//use restify saving scope data into database
-			$location.path("/users/orders"); // Redirect back to order list when done
+			//$location.path("/users/orders"); // need to  be fixed later, cant redirect here in chrome browser??
 		});
 	};
 
@@ -106,7 +107,7 @@ app.controller('orderListController', function($scope, $routeParams, $location, 
 
 
 		
-}
+};
 
  
         $scope.orderDetails = function (order) {
@@ -145,8 +146,7 @@ console.log("paras:",$scope.usera);
 		$scope.user = data[0];
 	});
 
-       $scope.payment_status = "Unknown";//need to be fixed
-       $scope.status = "Processing";//need to be fixed
+
 
 	
 
@@ -159,12 +159,42 @@ console.log("paras:",$scope.usera);
    	Order.query({_id: $routeParams.id}).$promise.then(function(data) {
 		$scope.b = data[0];
 		$scope.orderid = $routeParams.id;
-		console.log("order:", $scope.b.order_date);
+		console.log("order:", $scope.b.additional_details);
 		console.log("orderid:", $scope.orderid);
+		console.log("orderuploadfile:", $scope.b.uploadedFilename);
+
+    $scope.download = function () {
+      location.assign("uploads/" + $scope.b.uploadedFilename);
+
+    };
+
+
 	});
 	
 
+   $scope.upload = function() {//need to b fixed later
+		
+	var order = new Order();
+	$scope.order = { //??
+		_id: '_new'
+	};	
 
+
+         Order.query({_id: $routeParams.id}).$promise.then(function(data) {
+		$scope.order = data[0];
+
+		$scope.order.uploadedFilename = "uploading";
+		Order.delete({_id: $scope.order._id});
+	
+
+		Order.save($scope.order).$promise.then(function() {
+			console.log("changing to u",$routeParams.filename);
+		});
+	
+		
+	});
+
+	};
    
 
 });
@@ -223,9 +253,9 @@ app.controller('orderConfirmController', function($scope, $routeParams, $locatio
 
 app.controller('DTSConfirmController', function($scope, $routeParams, $location, Order) {
 	console.log("paras:",$routeParams.filename);
-        $scope.displayMessage = $routeParams.filename + " has been uploaded." + $routeParams.id;
+        $scope.displayMessage = "The DTS file " + $routeParams.filename + " has been uploaded.";
 	
-	$scope.lists = Order.query({filename: "newfile"});
+	//$scope.lists = Order.query({filename: "newfile"});
 	
 	var order = new Order();
 	$scope.order = { //??
@@ -234,17 +264,20 @@ app.controller('DTSConfirmController', function($scope, $routeParams, $location,
 
 	$scope.confirm = function() {
 		
-         Order.query({filename: "newfile"}).$promise.then(function(data) {//get original, delete, then create new one, need to be fixed later
+         Order.query({uploadedFilename: "uploading"}).$promise.then(function(data) {//get original, delete, then create new one, need to be fixed later
 		
 		$scope.order = data[0];
-		$scope.order.filename = $routeParams.filename;
+		$scope.order.uploadedFilename = $routeParams.filename;
 		Order.delete({_id: $scope.order._id});
 	
 			
-		$scope.displayMessage = $scope.order._id + $scope.order.status + $scope.order.filename;
+		console.log("scope.order:",$scope.order);
 
 		Order.save($scope.order).$promise.then(function() {
-			$location.path("/users/orders"); 
+			 
+			console.log("aaaaaaaaaaaaaa:",$routeParams.filename);
+			$location.path("/users/orders");		
+ 			
 		});
 	
 		

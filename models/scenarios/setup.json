@@ -11,6 +11,16 @@
 			"company": "MFDC"
 		},
 		{
+			"_ref": "users.vm",
+			"username": "vandy@mfdc.biz",
+			"password": "abcd",
+			"first_name": "Vandy",
+			"last_name" : "Mau",
+			"role": "root",
+			"phone": "0400000000",
+			"company": "MFDC"
+		},
+		{
 			"_ref": "users.root",
 			"username": "root@stem.com",
 			"password": "qwaszx",
@@ -32,22 +42,29 @@
 			"password": "qwaszx",
 			"first_name": "Joe",
 			"last_name" : "User",
-			"role": "user"
+			"role": "user",
+			"phone": "0400000000",
+			"company": "MFDC"
 		}
 	],
 
 
 	"orders": [
 		{
-			"additional_details": "hello",
-			"payment_status": "Paid",
-			"status": "Accepted",
-			"filename": "abc.jpg"
+			"additional_details": "This is the test file",
+			"email": "charles@mfdc.biz",
+			"payment_status": "Not Paid",
+			"status": "Processing",
+			"uploadedFilename": "Test",
+			"filename": "2122391431579960105.pdf"
 		},																																					
 		{
-			"additional_details": "world",
+			"additional_details": "Need to be done in one week",
+			"email": "charles@mfdc.biz",
 			"payment_status": "Not Paid",
-			"status": "Processing"
+			"status": "Processing",
+			"uploadedFilename": "Test",
+			"filename": "turkish_van_cat1-663x7281431582510216.jpg"
 		}
 	]
 }

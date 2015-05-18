@@ -21,7 +21,7 @@
                         <div class='box-header red-background'>
 
                             <div>
-                                <div class='title'>All Orders</div>
+                                <div class='title'>Click to see the details</div>
                                
                             </div>
                         </div>
@@ -39,16 +39,14 @@
                                                 Date
                                             </th>
                                             <th>
-                                                Requirements
-                                            </th>
-                                            <th>
                                                 Payment
                                             </th>
-                                            <th>
-                                                Status
-                                            </th>
+
                                             <th>
                                                 File
+                                            </th>
+                                            <th>
+                                                DTS File
                                             </th>
                                             <th>
                                                 Actions
@@ -59,10 +57,9 @@
                                         <tr style="cursor:pointer" ng-repeat="order in orders | filter:filter">
 				            <td ng-click="orderDetails(order)">{{order.email}}</td>
                                             <td ng-click="orderDetails(order)">{{order.order_date}}</td>
-					    <td ng-click="orderDetails(order)">{{order.additional_details}}</td>
-                                            <td ng-click="orderDetails(order)">{{order.payment_status}}</td>
                                             <td ng-click="orderDetails(order)">{{order.status}}</td>
-				            <td ng-click="orderDetails(order)">{{order.filename}}</td>
+                                            <td ng-click="orderDetails(order)">{{order.filename}}</td>
+				            <td ng-click="orderDetails(order)">{{order.uploadedFilename}}</td>
                                             <td>
                                                 <input class="btn btn-warning" style="margin-bottom:5px" value="DOWNLOAD" type="button" ng-click="downloadOrder(order)" type="submit"/>
                                                 <input class="btn btn-danger" style="margin-bottom:5px" value="DELETE" type="button" ng-click="deleteOrder(order)"/>
