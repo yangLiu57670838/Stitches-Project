@@ -9,7 +9,7 @@ app.controller('frontController', function($scope, $routeParams, $location, $roo
 
 		$scope.username = data.username;
 
-
+		$scope.b = data.username;
 	//$scope.role = data.role;
         $scope.admin = true;
 	$scope.user = false;

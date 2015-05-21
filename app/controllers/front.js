@@ -1,7 +1,7 @@
 app.controller('frontController', function($scope, $routeParams, $location, $rootScope,User) {
 
 	$scope.testa = 12;
-
+	console.log('abc:');
 	$scope.abctest = true;
 	$scope.a = "tt";
 	User.profile().$promise.then(function(data) {
