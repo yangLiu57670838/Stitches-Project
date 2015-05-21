@@ -5,7 +5,7 @@
 
 
                  <div class='alert alert-info'>
-                   Your current order number is: {{count}}.               
+                   Your current order number is: {{count}}          
                  </div>
 
 <section class="slice ">

@@ -57,7 +57,8 @@ app.controller('orderListController', function($scope, $routeParams, $location, 
 				$scope.status = $routeParams.status
 	
 				$scope.refresh = function() {
-					$scope.orders = Order.query({status: $routeParams.status, email: $email});
+					//$scope.orders = Order.query({status: $routeParams.status, email: $email});
+				$scope.orders = Order.query({email: $email});
 				};
 				$scope.refresh();
 	
@@ -72,7 +73,8 @@ app.controller('orderListController', function($scope, $routeParams, $location, 
 				$scope.status = $routeParams.status
 	
 				$scope.refresh = function() {
-					$scope.orders = Order.query({status: $routeParams.status});
+					//$scope.orders = Order.query({status: $routeParams.status});
+					$scope.orders = Order.query();
 				};
 				$scope.refresh();
 	

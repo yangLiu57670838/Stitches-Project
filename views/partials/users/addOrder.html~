@@ -38,7 +38,7 @@
 <div class='form-group'>
                                               
         <label>Select a File to Upload</label>
-        <input type="file" name="userPhoto" ng-model-instant id="fileToUpload" multiple onchange="" ng-model="file" ng-hide="user"/>
+        <input type="file" name="userPhoto" ng-model-instant id="fileToUpload" multiple onchange="" ng-model="file"/>
     </div>
 
 

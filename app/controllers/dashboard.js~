@@ -4,7 +4,7 @@ app.controller('dashboardController', function($scope, $routeParams, $location, 
 	$scope.role = $customer.role;
         $scope.admin = true;
 	$scope.user = false;
-	$scope.count = 0;
+	
 	$scope.orders = [];
 	$email = $customer.username;
 		if ($customer.role == "user") 
@@ -14,6 +14,7 @@ app.controller('dashboardController', function($scope, $routeParams, $location, 
 
 				Order.query({email: $email}).$promise.then(function(data) {
 console.log('aaa:' ,data.length);
+$scope.count = data.length;
 });
 				//$scope.count = $scope.orders.length;
 	
@@ -28,6 +29,7 @@ console.log('aaa:' ,data.length);
 				Order.query().$promise.then(function(data) {//because nodejs is asynchronous, have to get database data in the promise.then immediately after database query called
 console.log('aaa:' ,data.length);
 
+$scope.count = data.length;
 
 });
 					
