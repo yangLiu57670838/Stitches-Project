@@ -5,16 +5,8 @@ app.controller('dashboardController', function($scope, $routeParams, $location, 
         $scope.admin = true;
 	$scope.user = false;
 
-	$scope.test = 1;
+	
 
-		if($customer.role == "user")
-{
-         $scope.test = 2;
-}
-else
-{
-           $scope.test = 3;
-}
 
 	$scope.orders = [];
 	$email = $customer.username;
