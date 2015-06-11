@@ -171,6 +171,7 @@ app.use('/data', express.static(__dirname + '/data'));
 app.use('/partials', express.static(__dirname + '/views/partials'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/uploads', express.static(__dirname + '/uploads'));//!important:to turn off the url hash and can directly use the uploads folder
+app.use('/api/email', express.static(__dirname + '/api/email'));
 // }}}
 
 // Error catcher {{{

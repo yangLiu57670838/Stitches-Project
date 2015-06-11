@@ -64,5 +64,24 @@
 			"status": "Processing",
 			"filename": "turkish_van_cat1-663x7281431582510216.jpg"
 		}
+	],
+
+	"messages": [
+		{
+			"remail": "user@stem.com",
+			"semail": "ly_musictt@hotmail.com",
+			"detail": "This is a test message"
+		},
+		{
+			"remail": "charles@mfdc.biz",
+			"semail": "ly_musictt@hotmail.com",
+			"detail": "This is the second test message"
+		},
+		{
+			"remail": "vandy@mfdc.biz",
+			"semail": "ly_musictt@hotmail.com",
+			"detail": "This is the third test message"
+		}																																						
+
 	]
 }

@@ -1,4 +1,4 @@
-app.controller('frontController', function($scope, $routeParams, $location, $rootScope, User) {
+app.controller('frontController', function($scope, $routeParams, $location, $rootScope, User, Message) {
 
 	
 	console.log('abc:');
@@ -7,7 +7,7 @@ app.controller('frontController', function($scope, $routeParams, $location, $roo
 		console.log('abc:',data);
 
 		$scope.username = data.username;
-
+	
 		
 	//$scope.role = data.role;
         $scope.admin = true;
@@ -19,10 +19,21 @@ app.controller('frontController', function($scope, $routeParams, $location, $roo
 				
 			}
 
-		
-	});
+			
+	Message.query({remail: $scope.username}).$promise.then(function(data) {
+	$scope.count = data.length;
+	console.log('length:',$scope.count);
+	
+	var ms = {};
+  	$scope.ms = data;
+
+});
+	
 	
 
+
+
+	});
 	
 
 	

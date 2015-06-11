@@ -7,7 +7,7 @@ var mongoose = require('mongoose');//
 //var _ = require('lodash');
 //var async = require('async-chainable');
 //var mkdirp = require('mkdirp');
-
+var nodemailer = require('nodemailer');
 
 // FIXME: Security needed here to ensure only admins can get CRUD access
 restify.serve(app, orders);//go to database throught restify
@@ -128,5 +128,134 @@ app.post('/api/adminUpload/',function(req,res){//orderid is the way to pass data
 
 
 });//
+
+app.get('/api/email',function(req,res){
+
+var info = req.query.a;
+var bb = JSON.parse(info);//parse json data and return object
+var user = bb.email;
+var date = bb.order_date;
+var request = bb.additional_details;
+var file = bb.filename;
+
+	// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'yang.liu9@griffithuni.edu.au',//change to company email information!
+        pass: 'lyy888'
+    }
+});
+
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: 'Yang Liu <ly_musictt@hotmail.com>', // sender address
+    to: 'ly_musictt@hotmail.com', // list of receivers
+    subject: user + ' has uploaded a file', // Subject line
+    text: file + ' has been uploaded on ' + date + '. \n\n' + 'special request: ' + request, // plaintext body
+    html: '' // html body
+}
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Message sent: ' + info.response);
+	
+    }
+});
+	
+return res.redirect('/#/users/orders');
+});
+
+app.get('/api/emailDemo',function(req,res){
+
+var info = req.query.a;
+var bb = JSON.parse(info);//parse json data and return object
+var user = bb.email;
+var date = Date.now();
+var request = bb.additional_details;
+var file = bb.filename;
+
+	// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'yang.liu9@griffithuni.edu.au',//change to company email information!
+        pass: 'lyy888'
+    }
+});
+
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: 'Yang Liu <ly_musictt@hotmail.com>', // sender address
+    to: 'ly_musictt@hotmail.com', // list of receivers
+    subject: user + ' is using demo trial', // Subject line
+    text: file + ' has been paid on ' + date, // plaintext body
+    html: '' // html body
+}
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Message sent: ' + info.response);
+	
+    }
+});
+	
+return res.redirect('/#/users/orders');
+});
+
+app.get('/api/emailDTS',function(req,res){
+
+var info = req.query.a;
+var bb = JSON.parse(info);//parse json data and return object
+var user = bb.email;
+var date = Date.now();
+var request = bb.additional_details;
+var file = bb.uploadedFilename;
+
+	// create reusable transporter object using SMTP transport
+var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+        user: 'yang.liu9@griffithuni.edu.au',//change to company email information!
+        pass: 'lyy888'
+    }
+});
+
+// NB! No need to recreate the transporter object. You can use
+// the same transporter object for all e-mails
+
+// setup e-mail data with unicode symbols
+var mailOptions = {
+    from: 'Yang Liu <ly_musictt@hotmail.com>', // sender address
+    to: 'ly_musictt@hotmail.com', // list of receivers
+    subject: 'DTS File Uploaded', // Subject line
+    text: file + ' has been uploaded on ' + date, // plaintext body
+    html: '' // html body
+}
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+        console.log(error);
+    }else{
+        console.log('Message sent: ' + info.response);
+	
+    }
+});
+	
+return res.redirect('/#/users/orders');
+});
 
 

@@ -1,6 +1,6 @@
 <section id='content' ng-controller="orderDetailsController">
     <div class='container-fluid'>
-        <div class='row-fluid' style ="margin-top: 50px;height:1000px;">
+        <div class='row-fluid' style ="margin-top: 50px;height:1200px;">
             <div class='span12 box'>
                 <div class='row'>
                     <div class='col-sm-12'>
@@ -107,7 +107,7 @@
 <fieldset>
                                         <div class='col-sm-4'>
 
-                                            <div class='box' ng-hide="usera">
+                                            <div class='box'>
                                                 <div class='lead'>
                                                     <i class='icon-user contrast'></i>
                                                     Download DTS File Here
@@ -119,15 +119,39 @@
                                         <div class='col-sm-7 col-sm-offset-1'>
 
                                                         
- 						<button class='btn btn-warning' ng-click="download()" ng-hide="usera">
+ 						<button class='btn btn-warning' ng-click="download()">
                                                     DOWNLOAD DTS
                                                 </button>
 
+                                        </div></fieldset>
+
+  <fieldset ng-show="usera"> <div class='col-sm-4'>
+
+                                            <div class='box'>
+                                                <div class='lead'>
+                                                    <i class='icon-user contrast'></i>
+                                                    Pay for this order
+                                                </div>
+                                            </div>
+
                                         </div>
+<br><br><br>
+                                        <div class='col-sm-7 col-sm-offset-1'>
+
+                                                        
+ 					<button class='btn btn-success' ng-click="pay(b)">
+                                                   Pay
+                                                </button>
+
+                                        </div>
+
+
                                     </fieldset>
 					      <br><br><br>  <button class='btn' ng-click="back()">
                                                     Back To Order List
                                                 </button>
+
+
                                               
                             </div>
                         </div>

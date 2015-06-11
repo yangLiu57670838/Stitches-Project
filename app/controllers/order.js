@@ -196,8 +196,12 @@ console.log("paras:",$scope.usera);
     };
 
 
+        $scope.pay = function (b) {
+        $location.path("/users/payment/" + b._id);
+    };
+
+
 	});
-	
 
    
 
@@ -232,6 +236,11 @@ app.controller('orderConfirmController', function($scope, $routeParams, $locatio
          Order.query({filename: "newfile"}).$promise.then(function(data) {//get original, delete, then create new one, need to be fixed later
 		
 		$scope.order = data[0];
+
+
+		
+		
+
 		$scope.order.filename = $routeParams.filename;
 		Order.delete({_id: $scope.order._id});
 	
@@ -239,7 +248,13 @@ app.controller('orderConfirmController', function($scope, $routeParams, $locatio
 		$scope.displayMessage = $scope.order._id + $scope.order.status + $scope.order.filename;
 
 		Order.save($scope.order).$promise.then(function() {
-			$location.path("/users/orders"); 
+//sending email
+Order.email({a: $scope.order}, {email: 'fsdfsdfds'}).$promise.then(function(data) {
+			$location.path("/users/orders");//location.url() is used to go to a new path, location.url is used to go to a new page in the same rooturl.
+
+		});
+
+			//$location.path("/users/orders"); 
 		});
 	
 		
@@ -255,7 +270,7 @@ app.controller('orderConfirmController', function($scope, $routeParams, $locatio
 
 
 
-app.controller('DTSConfirmController', function($scope, $routeParams, $location, Order) {
+app.controller('DTSConfirmController', function($scope, $routeParams, $location, Order, Message) {
 	console.log("paras:",$routeParams.filename);
         $scope.displayMessage = "The DTS file " + $routeParams.filename + " has been uploaded.";
 	
@@ -274,13 +289,32 @@ app.controller('DTSConfirmController', function($scope, $routeParams, $location,
 		$scope.order.uploadedFilename = $routeParams.filename;
 		Order.delete({_id: $scope.order._id});
 	
-			
-		console.log("scope.order:",$scope.order);
 
 		Order.save($scope.order).$promise.then(function() {
 			 
-			console.log("aaaaaaaaaaaaaa:",$routeParams.filename);
-			$location.path("/users/orders");		
+			Order.emailDTS({a: $scope.order}, {emailDemo: 'fsdfsdfds'}).$promise.then(function(data) {
+			var messagea = new Message();
+
+			$scope.messagea = { //??
+				_id: '_new'
+			};
+			$scope.messagea.semail = "vandy@mfdc.biz";
+			$scope.messagea.remail = $scope.order.email;
+			$scope.messagea.date = Date.now();
+			$scope.messagea.detail = "DTS file " + $scope.order.uploadedFilename + " has been uploaded.";
+			Message.save($scope.messagea).$promise.then(function() {
+				$location.path("/users/orders");
+
+			
+				
+});
+			
+
+			
+
+		});
+
+		
  			
 		});
 	

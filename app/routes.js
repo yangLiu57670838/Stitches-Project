@@ -14,6 +14,7 @@ app.config(function($routeProvider, $locationProvider) {
 		.when('/users/confirm/:filename/:id', {templateUrl: "/partials/users/orderConfirm.html"})
 		.when('/users/DTSconfirm/:filename', {templateUrl: "/partials/users/DTSconfirm.html"})
 		.when('/users/payment', {templateUrl: "/partials/users/payment.html"})
+		.when('/users/payment/:order', {templateUrl: "/partials/users/payment.html"})
 
 		
 		.otherwise({templateUrl: "/partials/dashboard.html"});

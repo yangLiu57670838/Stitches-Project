@@ -10,7 +10,7 @@ var schema = new mongoose.Schema({
 	email: {type: String},
 	order_date: {type: Date},
 	additional_details: {type: String},
-	payment_status: {type: String, enum: ['Paid','Not Paid']},
+	payment_status: {type: String, enum: ['Paid','Not Paid', 'Demo Paid']},
 	status:{type: String, enum: ['Pending','Accepted','Processing','Completed']},
 	PaymentDetails: {type: String},
 	filename: {type: String},
