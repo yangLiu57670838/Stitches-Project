@@ -15,13 +15,13 @@
                                 </div>
 
                                 <form class='form' id="uploadForm" name="orderForm" style='margin-bottom: 0;' enctype="multipart/form-data" action="/api/photo/" method="post">
-                                    <fieldset>
+                                    <fieldset style="">
                                         <div class='col-sm-4'>
 
                                             <div class='box'>
                                                 <div class='lead'>
                                                     <i class='icon-user contrast'></i>
-                                                    Add a new order
+                                                    Contact Info
                                                 </div>
                                             </div>
                                         </div>
@@ -31,29 +31,46 @@
 
                                             <div class='form-group'>
                                                 <label>E-mail</label>
-                                                <input ng-model="email" class='form-control' id='email' placeholder='E-mail' type='text' disabled>
+                                                <input ng-model="email" class='form-control' id='email' name='email' placeholder='E-mail' type='text' disabled>
                                             </div>
 
 
-<div class='form-group'>
-                                              
-        <label>Select a File to Upload</label>
-        <input type="file" name="userPhoto" ng-model-instant id="fileToUpload" multiple onchange="" ng-model="file"/>
-    </div>
 
 
 
                                         </div>
                                     </fieldset>
                                     <hr class='hr-normal'>
-
-                                    <fieldset>
+<fieldset style="">
                                         <div class='col-sm-4'>
 
                                             <div class='box'>
                                                 <div class='lead'>
                                                     <i class='icon-user contrast'></i>
-                                                    What is your special requirement?
+                                                    Choose File
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class='col-sm-7 col-sm-offset-1'>
+
+                                           
+<div class='form-group'>
+                                              
+        <label>Select a File to Upload</label>
+        <input type="file" name="userPhoto" ng-model-instant id="fileToUpload" multiple onchange="" ng-model="file"/>
+    </div>
+
+                                        </div>
+                                    </fieldset>
+   <hr class='hr-normal'>
+                                    <fieldset style="">
+                                        <div class='col-sm-4'>
+
+                                            <div class='box'>
+                                                <div class='lead'>
+                                                    <i class='icon-user contrast'></i>
+                                                    Additional requirement
                                                 </div>
                                             </div>
 
@@ -76,12 +93,12 @@
                                         <div class='row'>
                                             <div class='col-sm-7 col-sm-offset-5'>
 
-                                                <button class='btn btn-success' ng-click="add()" type="submit">
+                                                <button class='btn btn-success btn-lg' ng-click="add()" type="submit">
                                                     Confirm
                                                 </button>
 
-                                                <button class='btn' ng-click="back()">
-                                                    BACK
+                                                <button class='btn btn-lg' ng-click="back()">
+                                                    Cancel
                                                 </button>
                                             </div>
                                         </div>

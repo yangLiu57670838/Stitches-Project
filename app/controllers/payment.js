@@ -114,6 +114,7 @@ console.log("orderid:",$routeParams.order);
 	};
  Order.query({_id: $routeParams.order}).$promise.then(function(data) {
 	$scope.order = data[0];
+	console.log('status:', $scope.order.status);
 	$scope.order.status = "Accepted";
 	$scope.order.payment_status = "Demo Paid";
 	Order.delete({_id: $routeParams.order});
@@ -131,7 +132,7 @@ console.log("orderid:",$routeParams.order);
 			$scope.messagea.date = Date.now();
 			$scope.messagea.detail = "User " + $scope.order.email + " is using demo trial for the order " + $scope.order.filename;
 			Message.save($scope.messagea).$promise.then(function() {
-				$location.path("/users/orders");
+				$location.path("/");
 
 			
 				

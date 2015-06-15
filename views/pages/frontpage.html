@@ -2,7 +2,9 @@
 <!-- Header -->
 <div id="header">
 	<div class="color-line"></div>
-	<div id="logo" class="light-version"><span>Stitches</span></div>
+		
+	<div id="logo" class="light-version"><span><img src="images/logo2.png" alt="" style="width:50px; height:60px; margin-top:0px; position:relative; top:-26px;"></span></div>
+	
 	<nav role="navigation">
 		<div class="header-link hide-menu" ng-click="toggleSidebar()"><i class="fa fa-bars"></i></div>
 		<div class="small-logo">
@@ -14,7 +16,7 @@
 				
 				<li class="dropdown">
 					<a class="dropdown-toggle label-menu-corner" href="" data-toggle="dropdown">
-						<i class="pe-7s-mail"></i>
+						<i class="">Inbox</i>
 						<span class="label label-success">{{count}}</span>
 					</a>
 					<ul class="dropdown-menu hdropdown animated flipInX">
@@ -64,34 +66,39 @@
 
 		<ul class="nav" id="side-menu">
 			<li>
-				<a href="#/"><span class="nav-label">Dashboard</span></a>
+				<a href="#/" style="height:60px; font-size:150%;  text-align:center;"><span class="nav-label">Dashboard</span></a>
 			</li>
 
 
 			<li>
-					<a href="" ng-show="admin"><span class="nav-label">Manage Users</span></a>
+					<a href="" ng-show="admin" style="height:80px; font-size:150%;  text-align:center;"><span class="nav-label">Manage Users</span></a>
 
 					<ul class="nav nav-second-level">
-					<li><a href="#/users/list">Current Users</a></li>
-					<li><a href="#/users/addUsers">Add User</a></li></ul>
+					<li><a href="#/users/list" style="height:60px; font-size:150%;  text-align:center;">Current Users</a></li>
+					<li><a href="#/users/addUsers" style="height:60px; font-size:150%;  text-align:center;">Add User</a></li></ul>
 
+			</li>
+			<li>
+				<a href="#/users/guide" ng-if="user" style="height:60px; font-size:150%;  text-align:center;"><span class="nav-label">User Guide</span></a>
+			</li>
+						<li>
+				<a href="#/users/manual" ng-if="admin" style="height:60px; font-size:150%;  text-align:center;"><span class="nav-label">Manual</span></a>
 			</li>
 
 			<li>
-					<a href=""><span class="nav-label">Manage Orders</span></a>
-
-					<ul class="nav nav-second-level">
-					<li><a href="#/users/orders">Current Orders</a></li>
-					<li><a href="#/users/addOrder" ng-if="user">Add Order</a></li>
-					
-
+				<a href="#/users/contactus" style="height:60px; font-size:150%;  text-align:center;"><span class="nav-label">Contact Us</span></a>
 			</li>
+
+
 
 
 
 			
 		</ul>
+
+	
 	</div>
+
 </aside>
 
 <!-- Main Wrapper -->

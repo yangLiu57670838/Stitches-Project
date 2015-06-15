@@ -2434,7 +2434,7 @@ body {
 }
 .label-menu-corner .label {
     font-size: 10px;
-    line-height: 12px;
+    line-height: 10px;
     padding: 2px 5px;
     position: absolute;
     right: 18px;
@@ -2446,23 +2446,25 @@ body {
 #side-menu li a {
     color: #6a6c6f;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 900;
     padding: 15px 20px;
 }
 #side-menu li {
     border-bottom: 1px solid #e4e5e7;
+    
 }
 #side-menu li:first-child {
     border-top: 1px solid #e4e5e7;
 }
 #side-menu li.active a, #side-menu li:hover a {
-    color: #34495e;
+    color: #34495e; 
+   
 }
 #side-menu li .nav-second-level li a {
     padding: 10px 10px 10px 30px;
     color: #6a6c6f;
     text-transform: none;
-    font-weight: 600;
+    font-weight: 900;
 }
 #side-menu li .nav-second-level li.active a {
     color: #34495e;

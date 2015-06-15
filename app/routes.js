@@ -15,6 +15,10 @@ app.config(function($routeProvider, $locationProvider) {
 		.when('/users/DTSconfirm/:filename', {templateUrl: "/partials/users/DTSconfirm.html"})
 		.when('/users/payment', {templateUrl: "/partials/users/payment.html"})
 		.when('/users/payment/:order', {templateUrl: "/partials/users/payment.html"})
+		.when('/users/contactus', {templateUrl: "/partials/users/contactus.html"})
+		.when('/users/guide', {templateUrl: "/partials/users/guide.html"})
+		.when('/users/manual', {templateUrl: "/partials/users/manual.html"})
+		
 
 		
 		.otherwise({templateUrl: "/partials/dashboard.html"});

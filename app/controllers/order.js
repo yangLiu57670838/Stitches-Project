@@ -41,21 +41,32 @@ app.controller('orderController', function($scope, $routeParams, $location, Orde
 
 
 
-app.controller('orderListController', function($scope, $routeParams, $location, Order, $rootScope) {
+app.controller('orderListController', function($scope, $routeParams, $location, Order, User, $rootScope) {
+
+		User.query({username: $rootScope.user.username}).$promise.then(function(data) {
+		$u = data[0];
+		$scope.r = $u.first_name;
+		console.log("username:",$rootScope.user.username);
+	});
 
 
 		$customer = $rootScope.user;
 		$scope.role = $customer.role;
        		$scope.admin = true;
 		$scope.user = false;
-
+		
+		
 		if ($customer.role == "user") {
 				$scope.admin = false;
 				$scope.user = true;
 				$email = $customer.username;
 				$scope.orders = [];
 				$scope.status = $routeParams.status
-	
+
+				Order.query({email: $email}).$promise.then(function(data) {
+		$scope.countorder = data.length;
+	});
+
 				$scope.refresh = function() {
 					//$scope.orders = Order.query({status: $routeParams.status, email: $email});
 				$scope.orders = Order.query({email: $email});
@@ -68,6 +79,11 @@ app.controller('orderListController', function($scope, $routeParams, $location, 
 			} else
 
 		{
+
+				Order.query().$promise.then(function(data) {
+					$scope.countorder = data.length;
+				});
+						
 
 				$scope.orders = [];
 				$scope.status = $routeParams.status
@@ -248,13 +264,19 @@ app.controller('orderConfirmController', function($scope, $routeParams, $locatio
 		$scope.displayMessage = $scope.order._id + $scope.order.status + $scope.order.filename;
 
 		Order.save($scope.order).$promise.then(function() {
-//sending email
-Order.email({a: $scope.order}, {email: 'fsdfsdfds'}).$promise.then(function(data) {
-			$location.path("/users/orders");//location.url() is used to go to a new path, location.url is used to go to a new page in the same rooturl.
+
+			Order.query({filename: $routeParams.filename}).$promise.then(function(data1) {
+				//sending email
+				Order.email({a: data1[0]}, {email: 'fsdfsdfds'}).$promise.then(function(data) {
+					$location.path("/users/payment/" + data1[0]._id);//location.url() is used to go to a new path, location.url is used to go to a new page in the same rooturl.
 
 		});
 
 			//$location.path("/users/orders"); 
+               
+});
+
+
 		});
 	
 		

@@ -8,6 +8,10 @@ var mongoose = require('mongoose');//
 //var async = require('async-chainable');
 //var mkdirp = require('mkdirp');
 var nodemailer = require('nodemailer');
+var bodyParser = require('body-parser'); // bodyparser can get form values through restful post
+app.use(bodyParser.json()); // for parsing application/json
+app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
+
 
 // FIXME: Security needed here to ensure only admins can get CRUD access
 restify.serve(app, orders);//go to database throught restify
@@ -63,7 +67,10 @@ app.put('/api/orders/:id', function(req, res) {
 
 
 app.use(multer({ dest: './uploads/',//
-    rename: function (fieldname, filename) {
+    rename: function (fieldname, filename, req, res) {
+console.log('multer:', req.body);
+	//var name = req.body;
+
     return filename+Date.now();//????json or now, how to convert data to readable name??
   },
 onFileUploadStart: function (file) {
@@ -137,7 +144,7 @@ var user = bb.email;
 var date = bb.order_date;
 var request = bb.additional_details;
 var file = bb.filename;
-
+var id = bb._id;
 	// create reusable transporter object using SMTP transport
 var transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -154,8 +161,8 @@ var transporter = nodemailer.createTransport({
 var mailOptions = {
     from: 'Yang Liu <ly_musictt@hotmail.com>', // sender address
     to: 'ly_musictt@hotmail.com', // list of receivers
-    subject: user + ' has uploaded a file', // Subject line
-    text: file + ' has been uploaded on ' + date + '. \n\n' + 'special request: ' + request, // plaintext body
+    subject: 'You has just uploaded a file', // Subject line
+    text: file + ' has been uploaded on ' + date + '. \n\n' + 'special request: ' + request + '. You will receive the DTS image soon once you make a payment.', // plaintext body
     html: '' // html body
 }
 
@@ -169,7 +176,7 @@ transporter.sendMail(mailOptions, function(error, info){
     }
 });
 	
-return res.redirect('/#/users/orders');
+return res.redirect('/#/users/payment/' + id);
 });
 
 app.get('/api/emailDemo',function(req,res){

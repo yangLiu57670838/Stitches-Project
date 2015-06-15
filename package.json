@@ -52,7 +52,8 @@
     "passport-local": "~1.0.0",
     "require-dir": "~0.1.0",
     "superagent": "~0.19.1",
-    "gulp-download": "0.0.1"
+    "gulp-download": "0.0.1",
+    "nodemailer": "~1.3.4"
   },
   "devDependencies": {
     "mt-downloader": "~0.2.10"
